@@ -30,42 +30,111 @@ include SITE_PATH . '/view/page.php';
 
 
 
+// ---------------------------------------------- Testing -----------------------------------------
 
 
 
 
-$db = Db::connect();
+$_mysqlObj = Db::connect();
 
 
 
 $datas = array();
 $id=5;
-$id = $db->real_escape_string($id);
+$id = $_mysqlObj->real_escape_string($id);
+
+//------------------------------------ Grtting all columns and infos ---------------------------------------------
 
 
-// $results = $db->query('SELECT * FROM articles');
+// $results = $_mysqlObj->query('SELECT * FROM articles');
 // while( $rows = $results->fetch_object() )
 // {
 //     echo $rows->TitleArticle . '<br>';
 // }
 
+//----------------------------------Getting a specific row with id -------------------------------------------------
 
-$result = $db->query( 'SELECT * FROM articles WHERE IdArticle =' .$id );
+$result = $_mysqlObj->query( 'SELECT * FROM articles WHERE IdArticle =' .$id );
 $row = $result->fetch_object();
 // print_r($row->IntroArticle);
 
 
-$IdArticle = $db->real_escape_string($_POST[6]);
-$TitleArticle = $db->real_escape_string($_POST['New inserted title']);
-$IntroArticle = $db->real_escape_string($_POST['New Intro']);
-$ContentArticle = $db->real_escape_string($_POST['New Content']); 
+
+//---------------------------------------- Insert ------------------------------------------------------------------
 
 
-$db->query("INSERT INTO articles( IdArticle, TitleArticle, IntroArticle, ContentArticle ) VALUES ('$IdArticle', '$TitleArticle', '$IntroArticle', '$ContentArticle' ) ");
+// $IdArticle = $_mysqlObj->real_escape_string($_POST[6]);
+// $TitleArticle = $_mysqlObj->real_escape_string($_POST['New inserted title']);
+// $IntroArticle = $_mysqlObj->real_escape_string($_POST['New Intro']);
+// $ContentArticle = $_mysqlObj->real_escape_string($_POST['New Content']); 
 
-// $TitleArticle = $db->real_escape_string( $_POST['TitleArticle'] );
-// $IntroArticle = $db->real_escape_string( $_POST['IntroArticle'] );
-// $ContentArticle = $db->real_escape_string( $_POST['ContentArticle'] );
+// $_mysqlObj->query("INSERT INTO articles( IdArticle, TitleArticle, IntroArticle, ContentArticle ) VALUES ('$IdArticle', '$TitleArticle', '$IntroArticle', '$ContentArticle' ) ");
 
-// $db->query( 'INSERT INTO articles( TitleArticle, IntroArticle, ContentArticle )
-// VALUES ( \''.$TitleArticle.'\', \''.$IntroArticle.'\', \''.$ContentArticle.'\' )');
+
+
+//----------------------------------------------------- prepare and bind ---------------------------------------------
+
+
+$stmt = $_mysqlObj->prepare("INSERT INTO articles (IdArticle, TitleArticle, IntroArticle, ContentArticle) VALUES (?, ?, ?)");
+$stmt->bind_param("isss", $IdArticle, $TitleArticle, $IntroArticle,$ContentArticle);
+
+$IdArticle =6;
+$TitleArticle = $_POST['New inserted title'];
+$IntroArticle = $_POST['New Intro'];
+$ContentArticle = $_POST['New Content']; 
+
+$stmt->execute();
+
+
+
+
+
+//-----------------------------------------------------Using the Queries class:--------------------------------------------
+
+
+$query = new Query()
+$query->select( 'SELECT * FROM articles' );
+
+foreach( $rows as $row )
+{
+?>
+<article>
+    <h2><?php echo $row[ 'TitleArticle' ]; ?></h2>
+</article>
+<?php
+} 
+
+
+// -----------------------------------------------------
+
+
+$values = array(
+    'IdArticle' => null,
+    'TitleArticle' => $_POST['TitleArticle'],
+    'IntroArticle' => $_POST['IntroArticle'],
+    'ContentArticle' => $_POST['ContentArticle']
+   );
+   $query = new Query()
+   $query->insert( 'articles', $values );
+
+
+
+// -----------------------------------------------------
+
+
+
+   $values = array(
+    'TitleArticle' => $_POST['TitleArticle'],
+    'IntroArticle' => $_POST['IntroArticle'],
+    'ContentArticle' => $_POST['ContentArticle']
+   );
+   $query = new Query()
+   $query->update( 'articles', $values, 'IdArticle' = $id );
+
+
+// -----------------------------------------------------
+
+
+
+   $query = new Query()
+   $query->delete( 'articles', 'IdArticle' = $id );
