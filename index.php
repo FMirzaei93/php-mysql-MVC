@@ -28,13 +28,6 @@ include SITE_PATH . '/view/page.php';
 
 
 
-//----------------------------------Getting a specific row with id -------------------------------------------------
-
-//$result = $_mysqlObj->query( 'SELECT * FROM articles WHERE IdArticle =' .$id );
-//$row = $result->fetch_object();
-// print_r($row->IntroArticle);
-
-
 //----------------------------------------------------- prepare and bind ---------------------------------------------
 
 
