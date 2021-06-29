@@ -1,9 +1,18 @@
 <h1>Articles</h1>
 
 <?php 
-if( isset( $datas[ 'articles' ] ) )
+
+$query = new Queries();
+$articles = $query-> getRowsArray('articles'); 
+
+
+//if( isset( $datas[ 'articles' ] ) )
+if( isset($articles) )
+
+
 {
-    while( $row = $datas[ 'articles' ]->fetch_array())
+    foreach ($articles as $row) 
+        
     //fetch_array() function is used to fetch rows from the database and store them as an array.
     {
     ?>
