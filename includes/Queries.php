@@ -17,9 +17,9 @@ Class Queries{
  }
  
  
- //----------------------------------------- Select all rows -------------------------------------
+ //----------------------------------------- Get all rows (Select) -------------------------------------
  
- public function select( $table )
+ public function getRowsArray( $table )
  {
      
  $query = 'SELECT * FROM '. $table;
