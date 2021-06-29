@@ -66,7 +66,7 @@ include SITE_PATH . '/view/page.php';
 //------------------------------------ Get all rows ---------------------------------------------
 
     
-//
+
 //$query = new Queries();
 //$rows = $query->select( 'articles' );
 //
@@ -109,3 +109,12 @@ include SITE_PATH . '/view/page.php';
 //    $id=6;
 //    $query = new Queries();
 //    $query->delete( 'articles', 'IdArticle='.$id );
+
+
+
+//-----------------------------------------------------------------------------------------------
+
+?>
+
+
+

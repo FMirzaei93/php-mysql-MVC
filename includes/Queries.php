@@ -1,17 +1,17 @@
 <?php
 
 Class Queries{
- private $mysqlObj;
+ private $_mysqlObj;
  function __construct()
  {
- $this->mysqlObj = Db::connect();
+ $this->_mysqlObj = Db::connect();
  }
 
 //-------------------------------------------- Create a query --------------------------------------
  
  private function _query( $query )
  {
- $result = $this->mysqlObj->query( $query );
+ $result = $this->_mysqlObj->query( $query );
  
  return $result;
  }
@@ -28,7 +28,7 @@ Class Queries{
   if( $results )
  {
    $rows = array();
-while( $r = $results->fetch_array() )
+while( $r = $results->fetch_array())
 //It gives each row respectively
    {
      array_push($rows, $r);
@@ -69,7 +69,7 @@ return $row;
 
 public function escape( $value )
 {
-return ' \''.$this->mysqlObj->real_escape_string( $value ).'\' ';
+return ' \''.$this->_mysqlObj->real_escape_string( $value ).'\' ';
 }
 
 

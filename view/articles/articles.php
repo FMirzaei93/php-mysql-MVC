@@ -3,7 +3,7 @@
 <?php 
 if( isset( $datas[ 'articles' ] ) )
 {
-    while( $row = $datas[ 'articles' ]->fetch_array() )
+    while( $row = $datas[ 'articles' ]->fetch_array())
     //fetch_array() function is used to fetch rows from the database and store them as an array.
     {
     ?>
