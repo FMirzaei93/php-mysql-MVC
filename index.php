@@ -9,7 +9,7 @@ define ( 'SITE_PATH', realpath( dirname(__FILE__) ) );
 // echo(dirname(__FILE__));         "C:\Program Files (x86)\EasyPHP-Devserver-17\eds-www\php-mvc"
 
 
-$site_url = str_replace('\\', '/', str_replace( realpath( $_SERVER[ 'DOCUMENT_ROOT' ] ), '', SITE_PATH ) );
+$site_url = str_replace('\\', '/', str_replace( realpath( $_SERVER[ 'DOCUMENT_ROOT' ] ), '', SITE_PATH ));
 //the folder of the project.
 // echo($site_url);    "/php-mvc"
 
@@ -53,10 +53,10 @@ include SITE_PATH . '/view/page.php';
 
 
 // $values = array(
-//     'TitleArticle' =>'My Title',
-//     'IdArticle' => 7,
-//     'IntroArticle' => 'My Intro',
-//     'ContentArticle' => 'My Content'
+//     'TitleArticle' =>'New Title',
+//     'IdArticle' => 8,
+//     'IntroArticle' => 'New Intro',
+//     'ContentArticle' => 'New Content'
 //    );
 //    $query = new Queries();
 //    $query->insert( 'articles', $values );
@@ -93,13 +93,13 @@ include SITE_PATH . '/view/page.php';
 //    $id=7;
 //    
 //    $values = array(
-//     'TitleArticle' =>'My Changed Title',
-//     'IntroArticle' => 'My Changed Intro',
-//     'ContentArticle' => 'My Changed Content'
+//     'TitleArticle' =>'My Second Changed Title',
+//     'IntroArticle' => 'My Second Changed Intro',
+//     'ContentArticle' => 'My Second Changed Content'
 //   );
 //    $query = new Queries();
 //    $query->update( 'articles', $values, 'IdArticle='.$id );
-//    
+    
 
 
 // ---------------------------------------------- Delete ---------------------------------------
