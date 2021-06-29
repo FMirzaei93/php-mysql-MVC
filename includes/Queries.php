@@ -91,13 +91,13 @@ foreach( $values as $column => $value ){
     if($n<$array_size-1){
     
     $strField .= $column.', ';
-    $strValue .=  "'".$value. "'".', ';
+    $strValue .=  $this->escape($value).', ';
     }
 
     else {
     //    the last item
     $strField .= $column;
-    $strValue .=  "'".$value. "'";
+    $strValue .=  $this->escape($value);
     }
 
     $n++;
@@ -130,12 +130,12 @@ foreach( $values as $column => $value )
     
     if($n<$array_size-1){
     
-        $str .= $column.' = '."'".$value. "'".', ';
+        $str .= $column.' = '.$this->escape($value).', ';
     }
 
     else {
     //    the last item
-        $str .= $column.' = '."'".$value. "'";
+        $str .= $column.' = '.$this->escape($value);
     }
 
 $n++;
