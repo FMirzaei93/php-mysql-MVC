@@ -5,20 +5,18 @@
 $query = new Queries();
 $articles = $query-> getRowsArray('articles'); 
 
-
 //if( isset( $datas[ 'articles' ] ) )
 if( isset($articles) )
-
-
 {
     foreach ($articles as $row) 
-        
-    //fetch_array() function is used to fetch rows from the database and store them as an array.
     {
     ?>
 <article>
     <h2><a
             href="<?php echo SITE_URL; ?>/index.php?page=articles&action=details&id=<?php echo $row[ 'IdArticle' ]; ?>"><?php echo $row[ 'TitleArticle' ]; ?></a>
+    <!-- The first value indicates the page(articles). It corresponds to the module which will process the information transmitted.-->
+    <!--The second value indicates the action to be taken on the page (the defined module). So "details" could assume that the detail of an article would be displayed (the one with specific id).-->
+        
     </h2>
     <p>
         <?php echo $row[ 'IntroArticle' ]; ?>

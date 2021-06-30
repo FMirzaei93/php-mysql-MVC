@@ -68,7 +68,7 @@ include SITE_PATH . '/view/page.php';
     
 
 //$query = new Queries();
-//$rows = $query->select( 'articles' );
+//$rows = $query->getRowsArray( 'articles' );
 //
 //echo '<br>';
 //foreach( $rows as $row )

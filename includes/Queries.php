@@ -23,13 +23,14 @@ Class Queries{
  {
      
  $query = 'SELECT * FROM '. $table;
+// It returns all columns(with their info) of the table 
  $results = $this->_query( $query );
  
   if( $results )
  {
    $rows = array();
 while( $r = $results->fetch_array())
-//It gives each row respectively
+//It gives each row respectively through a while loop
    {
      array_push($rows, $r);
    }
@@ -70,6 +71,10 @@ return $row;
 public function escape( $value )
 {
 return ' \''.$this->_mysqlObj->real_escape_string( $value ).'\' ';
+
+  //The function checks that the values of variables do not have any hidden queries. It adds an escape character(/), before certain potentially dangerous characters in a string passed in to the function. 
+  //The characters which get escaped are: \x00, \n, \r, \, ', " , \x1a.
+  //This can help prevent SQL injection attacks which are often performed by using the ' character to append malicious code to an SQL query.
 }
 
 

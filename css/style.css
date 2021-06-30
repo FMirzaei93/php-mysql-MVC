@@ -135,6 +135,7 @@ h5 {}
 h6 {}
 
 blockquote {
+   /*Makes dentation in a paragraph(usually a quote from another website)*/ 
     color: #777;
     background: #eee;
     border: 1px solid #ddd;
@@ -146,6 +147,7 @@ blockquote {
 }
 
 blockquote small {
+     /*the small tag defines smaller text (like copyright and other side-comments)*/
     font-style: italic;
     color: #444;
     text-align: right;
@@ -161,12 +163,14 @@ blockquote:focus {
 address {}
 
 hr {
+    /*an horizontal line for seperating 2 parts.*/
     height: 1px;
     border: none;
     background-color: #ccc;
 }
 
 code {
+    /*is used to define a piece of computer code. The content inside is displayed in the browser's default monospace font; however you can change it using style.*/
     color: magenta;
     white-space: nowrap;
 }
