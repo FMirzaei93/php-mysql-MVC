@@ -1,4 +1,5 @@
 <?php
+namespace application\contact;
 
 class Controller {
     
@@ -15,9 +16,25 @@ class Controller {
  $this->_view = 'contact';
  
  
-    if( $this->_action === 'send' )
+ 
+    switch( $this->_action )
     {
-    $this->_checkMessageSent();
+        case 'send' :
+           $this->_checkMessageSent();
+        break;
+        
+    
+        case 'form' :
+            $this->_datas = [];
+            $this->_view = 'contact';
+        break;
+    
+    
+        default : 
+            
+            $this->_datas = [];
+            $this->_view = 'contact_sent';
+        break;
     }
  
  } 
@@ -55,7 +72,7 @@ $datas['email']);
 
  public function datas()
  {
-// The datas () method will process the information and transmit the data to be transmitted to the interface.
+// The datas() method will process the information and transmit the data to be transmitted to the interface.
 // It must always be executed before the view () method because it will influence the interface to display.
  return $this->_datas;
  }
@@ -63,14 +80,14 @@ $datas['email']);
 
  public function view()
  {
-//The view () method will inform the interface to display.
- return 'articles/'.$this->_view;
+//The view() method will inform the interface to display.
+    return 'contact/'.$this->_view;
  }
 }
 
 
 //--------------------  Usage  ----------------
-//
+
 //    
 //$page = ( empty( $_GET[ 'page' ] ) ) ? 'contact' : $_GET[ 'page' ];
 //$action = ( empty( $_GET[ 'action' ] ) ) ? '' : $_GET[ 'action' ];

@@ -1,30 +1,46 @@
 <?php
-
 define ( 'SITE_PATH', realpath( dirname(__FILE__) ) ); 
 //The project path
-// echo(SITE_PATH);                 "C:\Program Files (x86)\EasyPHP-Devserver-17\eds-www\php-mvc"
-
-
-// echo(__FILE__);  //The file      "C:\Program Files (x86)\EasyPHP-Devserver-17\eds-www\php-mvc\index.php"
-// echo(dirname(__FILE__));         "C:\Program Files (x86)\EasyPHP-Devserver-17\eds-www\php-mvc"
-
 
 $site_url = str_replace('\\', '/', str_replace( realpath( $_SERVER[ 'DOCUMENT_ROOT' ] ), '', SITE_PATH ));
 //the folder of the project.
-// echo($site_url);    "/php-mvc"
-
-
-// echo($_SERVER[ 'DOCUMENT_ROOT' ]); //the path of where the server is running   "C:/Program Files (x86)/EasyPHP-Devserver-17/eds-www" 
-
 
 define ( 'SITE_URL', 'http://' . $_SERVER['HTTP_HOST'] . $site_url );
 
-//  echo($_SERVER['HTTP_HOST']); localhost:8080
-// echo(SITE_URL); http: //localhost:8080/php-mvc
+include SITE_PATH . '/includes/init.php';
 
-include SITE_PATH . '/includes/Db.php';
-include SITE_PATH . '/includes/Queries.php';
-include SITE_PATH . '/view/page.php';
+
+
+
+//----------------------------------------------------- Explanations ------------------------------------------------
+//
+//
+//
+//define ( 'SITE_PATH', realpath( dirname(__FILE__) ) ); 
+////The project path
+//// echo(SITE_PATH);                 "C:\Program Files (x86)\EasyPHP-Devserver-17\eds-www\php-mvc"
+//
+//
+//// echo(__FILE__);  //The file      "C:\Program Files (x86)\EasyPHP-Devserver-17\eds-www\php-mvc\index.php"
+//// echo(dirname(__FILE__));         "C:\Program Files (x86)\EasyPHP-Devserver-17\eds-www\php-mvc"
+//
+//
+//$site_url = str_replace('\\', '/', str_replace( realpath( $_SERVER[ 'DOCUMENT_ROOT' ] ), '', SITE_PATH ));
+////the folder of the project.
+//// echo($site_url);    "/php-mvc"
+//
+//
+//// echo($_SERVER[ 'DOCUMENT_ROOT' ]); //the path of where the server is running   "C:/Program Files (x86)/EasyPHP-Devserver-17/eds-www" 
+//
+//
+//define ( 'SITE_URL', 'http://' . $_SERVER['HTTP_HOST'] . $site_url );
+//
+////  echo($_SERVER['HTTP_HOST']); localhost:8080
+//// echo(SITE_URL); http: //localhost:8080/php-mvc
+//
+////include SITE_PATH . '/includes/Db.php';
+////include SITE_PATH . '/includes/Queries.php';
+//include SITE_PATH . '/view/page.php';
 
 
 
