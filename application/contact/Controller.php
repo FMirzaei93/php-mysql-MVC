@@ -40,26 +40,32 @@ class Controller {
  } 
 
  
- 
  private function _checkMessageSent()
  {
  if( isset( $_POST[ 'email' ] ) ){
  $datas = $_POST;
  
     if( empty( $_POST[ 'email' ] ) ){
- $datas[ 'error' ][ 'emailempty' ] = true;
- }
-         else if( !filter_var( $_POST[ 'email' ], FILTER_VALIDATE_EMAIL ) ){
- $datas[ 'error' ][ 'emailformat' ] = true;
- }
+         $datas[ 'error' ][ 'emailempty' ] = true;
+     }
+ 
+ 
+    else if( !filter_var( $_POST[ 'email' ], FILTER_VALIDATE_EMAIL ) ){
+                $datas[ 'error' ][ 'emailformat' ] = true;
+            }
+            
+            
+            
     if( empty( $_POST[ 'message' ] ) ){
- $datas[ 'error' ][ 'messageempty' ] = true;
- }
- $this->_datas = $datas;
+            $datas[ 'error' ][ 'messageempty' ] = true;
+        }
+        
+        
+     $this->_datas = $datas;
+     
      if( !isset( $datas[ 'error' ] ) )
  {
- mail('mail@dom.net', 'Subject', $datas['message'], 'From:'.
-$datas['email']);
+       mail('mail@dom.net', 'Subject', $datas['message'], 'From:'. $datas['email']);
 
  $this->_view = 'contact_sent';
     }
@@ -68,6 +74,21 @@ $datas['email']);
  }
  
  
+ private function _sendEmailToDb($emailData) {
+     // $values = array(
+//     'TitleArticle' =>'New Title',
+//     'IdArticle' => 8,
+//     'IntroArticle' => 'New Intro',
+//     'ContentArticle' => 'New Content'
+//    );
+//    $query = new Queries();
+//    $query->insert( 'articles', $values );
+
+ }
+
+
+
+
 
 
  public function datas()

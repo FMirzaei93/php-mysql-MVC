@@ -5,9 +5,13 @@
 <html>
 
 <head>
+    
+    
     <meta charset="UTF-8">
     <title>Articles</title>
     <link rel="stylesheet" type="text/css" href="<?php echo SITE_URL; ?>/css/style.css" />
+
+    
 </head>
 
 <body>
@@ -20,18 +24,24 @@
                     <!--what come after question mark(?), are parameters that are added after the current Url-->
                 </ul>
             </nav>
+            
+            
             <?php
-           
-           //Including
-         
+            
            self::_includeInTemplate( $datas['page'], $datas['action'], $datas['router'] );
-           // Since the display is executed during the rendering operation, the call to the _includeInTemplate() method is possible since it is present in the same class.
+           // Explanation of using _includeInTemplate directly : in the related method in Template.php class. (You can also refer to the line down  below)
+           //$data array comes from Template.php. As this page is including in Templatw.php, So we have acces to its variables and methods
          
             ?>
             
             
         </main>
     </div>
+    
+    <button id="my_btn"><a href="<?php echo SITE_URL; ?>/articles/add">Add article</a></button>
+
+
+
 </body>
 
 </html>

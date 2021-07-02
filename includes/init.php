@@ -1,7 +1,6 @@
 <?php
 
 include SITE_PATH . '/includes/Bootstrap.php';
-//include SITE_PATH . '/includes/Db.php';
 Bootstrap::url();
 
 //$controller = new Controller( Bootstrap::$page, Bootstrap::$action, Bootstrap::$router );

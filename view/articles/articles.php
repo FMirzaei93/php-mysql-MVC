@@ -2,11 +2,8 @@
 
 <?php 
 
-//$query = new Queries();
-//$articles = $query-> getRowsArray('articles'); 
 
 if( isset( $datas[ 'articlesList' ] ) )
-//if( isset($articles) )
 {
     foreach ($datas[ 'articlesList' ] as $row) 
     {

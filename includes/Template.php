@@ -2,13 +2,15 @@
 
 class Template {
 //     templating engine, helps to integrate the backend and the front end easily.
-    
-    
-    public static function page( $urlInfos )
- {
-        self::_render( 'page', $urlInfos );      
-       
- }
+            
+
+        public static function page( $urlInfos )
+    {
+            
+        $_initial_page='page.php';
+        self::_render( $_initial_page, $urlInfos );       
+        
+    }
 
  private static function _includeInTemplate($page, $action='', $router='')
          //This function is being used in view/page.php class
@@ -17,7 +19,9 @@ class Template {
  // Operate module inclusions and transmit for rendering
      
      if( file_exists(SITE_PATH.'/application/'.$page.'/Controller.php') )
+     
     {
+         
         include_once SITE_PATH.'/application/'.$page.'/Controller.php';
 
         $controllerPath = '\application\\'.$page.'\Controller'; //namespace
@@ -42,12 +46,12 @@ class Template {
 //      In order to do this, the use of the buffer will be required. The ob_start() functions, ob_get_contents() and ob_end_clean() respectively allow to call 
 //          the buffer memory, recover data in memory and finally free the memory.
              
-  if( file_exists( SITE_PATH.'/view/'.$filepath.'.php' ) && is_readable( SITE_PATH.'/view/'.$filepath.'.php' ) )
+  if( file_exists( SITE_PATH.'/view/'.$filepath ) && is_readable( SITE_PATH.'/view/'.$filepath ) )
         {
 //      ob: output buffering : Output Buffering is a method to tell the PHP engine to hold the output data before sending it to the browser.
         ob_start();
         //****************** HERE:
-        include( SITE_PATH.'/view/'.$filepath.'.php' );
+        include( SITE_PATH.'/view/'.$filepath );
         $template = ob_get_contents();
 //        The ob_get_contents() function returns the contents of the topmost output buffer.
         ob_end_clean();

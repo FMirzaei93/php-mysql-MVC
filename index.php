@@ -1,4 +1,6 @@
+
 <?php
+
 define ( 'SITE_PATH', realpath( dirname(__FILE__) ) ); 
 //The project path
 
@@ -8,6 +10,7 @@ $site_url = str_replace('\\', '/', str_replace( realpath( $_SERVER[ 'DOCUMENT_RO
 define ( 'SITE_URL', 'http://' . $_SERVER['HTTP_HOST'] . $site_url );
 
 include SITE_PATH . '/includes/init.php';
+
 
 
 

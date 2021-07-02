@@ -5,9 +5,9 @@
 </p>
 
 <?php 
-if( isset( $datas[ 'article' ] ) )
+if( isset( $datas[ 'articlesList' ] ) )
 {
-    $row = $datas[ 'article' ]->fetch_array();
+    $row = $datas[ 'articlesList' ]->fetch_array();
     ?>
         <article>
             <h2><a href="<?php echo SITE_URL; ?>/index.php?page=articles&action=details&id=<?php echo $row[ 'IdArticle' ]; ?>"><?php echo $row[ 'TitleArticle' ]; ?></a></h2>

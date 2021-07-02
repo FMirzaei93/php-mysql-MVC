@@ -15,7 +15,7 @@ class Controller {
  $this->_page = $page;
  $this->_action = $action;
  $this->_datas = [];
- $this->_view = 'articles';
+ $this->_view = 'articles.php';
  
  
   include SITE_PATH . '/includes/Db.php';
@@ -28,20 +28,20 @@ class Controller {
     switch( $this->_action )
     {
         case 'details' :
-           $this->_getAllRows();
+           $this->_datas['articlesList'] = $this->_getAllRows();
         break;
         
     
         case 'add' :
             $this->_datas = [];
-            $this->_view = 'article_form';
+            $this->_view = 'article_form.php';
         break;
     
     
         default : 
             
             $this->_datas = [];
-            $this->_view = 'page';
+            $this->_view = 'page.php';
         break;
     }
  
@@ -52,9 +52,9 @@ class Controller {
  private function _getAllRows()
  {
     $query = new \Queries();
+//    This slash is for accessing the Queries class in the current namespace.
     $articles = $query-> getRowsArray('articles'); 
-//    return $articles;
-    $this->_datas['articlesList'] = $articles;
+    return $articles;
  }
  
  
