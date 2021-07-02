@@ -15,7 +15,7 @@
         <main>
             <nav>
                 <ul>
-                    <li><a href="<?php echo SITE_URL; ?>/articles">Articles</a></li>
+                    <li><a href="<?php echo SITE_URL; ?>/articles/details">Articles</a></li>
                     <li><a href="<?php echo SITE_URL; ?>/contact/form">Contact</a></li>
                     <!--what come after question mark(?), are parameters that are added after the current Url-->
                 </ul>

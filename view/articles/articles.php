@@ -2,13 +2,13 @@
 
 <?php 
 
-$query = new Queries();
-$articles = $query-> getRowsArray('articles'); 
+//$query = new Queries();
+//$articles = $query-> getRowsArray('articles'); 
 
-//if( isset( $datas[ 'articles' ] ) )
-if( isset($articles) )
+if( isset( $datas[ 'articlesList' ] ) )
+//if( isset($articles) )
 {
-    foreach ($articles as $row) 
+    foreach ($datas[ 'articlesList' ] as $row) 
     {
     ?>
 <article>
