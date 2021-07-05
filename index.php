@@ -1,6 +1,7 @@
 
 <?php
 
+
 define ( 'SITE_PATH', realpath( dirname(__FILE__) ) ); 
 //      C:\Program Files (x86)\EasyPHP-Devserver-17\eds-www\php-mvc  --> The project path
 
@@ -9,7 +10,8 @@ $site_url = str_replace('\\', '/', str_replace( realpath( $_SERVER[ 'DOCUMENT_RO
 define ( 'SITE_URL', 'http://' . $_SERVER['HTTP_HOST'] . $site_url );
 //     http: //localhost:8080/php-mvc
 
-include SITE_PATH . '\includes\init.php';
+include_once SITE_PATH . '\includes\Statics.php';
+include Statics::$init_path;
 
 
 

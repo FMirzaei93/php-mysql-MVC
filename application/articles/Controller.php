@@ -1,5 +1,6 @@
 <?php
 namespace application\articles;
+include_once SITE_PATH . '\includes\Statics.php';
 
 class Controller {
     

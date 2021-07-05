@@ -28,6 +28,8 @@
             
             <?php
             
+            // Now page.php is the responsible for handling all the tabs, so it has to act the way that it works for all of them.   
+            include_once SITE_PATH . '\includes\Statics.php';
            include_once SITE_PATH . '\includes\ConnectToTheController.php';
         
            ConnectToTheController::connectAndRender( $datas['page'], $datas['action'], $datas['router'] );

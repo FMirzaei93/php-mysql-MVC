@@ -1,12 +1,13 @@
 <?php class Bootstrap{
-    
+
     public static $page; 
     public static $action;
     public static $router;
     
     
     public static function splitTheUrl($url) {                 
-        
+        include_once SITE_PATH . '\includes\Statics.php';
+
         if( !empty( $url ) ){
             
             $parts = explode( '/', $url );           
