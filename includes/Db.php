@@ -7,7 +7,7 @@ Class Db{
     {
         if( !isset( self::$mysqlObj ) )
         {
-            $config = parse_ini_file( SITE_PATH . '/includes/config.ini' );
+            $config = parse_ini_file( SITE_PATH . '\includes\config.ini' );
             // The parse_ini_file() function parses a configuration (ini) file and returns the settings.
  
 

@@ -18,6 +18,10 @@ if( isset( $datas[ 'articlesList' ] ) )
     <p>
         <?php echo $row[ 'IntroArticle' ]; ?>
     </p>
+    
+    <p>
+        <?php echo $row[ 'ContentArticle' ]; ?>
+    </p>
 </article>
 <?php
     }

@@ -15,11 +15,11 @@ class Controller {
  $this->_page = $page;
  $this->_action = $action;
  $this->_datas = [];
- $this->_view = 'articles.php';
+ $this->_view = '';
  
  
-  include SITE_PATH . '/includes/Db.php';
-  include SITE_PATH . '/includes/Queries.php';
+  include SITE_PATH . '\includes\Db.php';
+  include SITE_PATH . '\includes\Queries.php';
 
 
  
@@ -29,6 +29,7 @@ class Controller {
     {
         case 'details' :
            $this->_datas['articlesList'] = $this->_getAllRows();
+            $this->_view = 'articles_list.php';
         break;
         
     

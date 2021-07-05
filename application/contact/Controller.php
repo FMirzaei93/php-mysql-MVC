@@ -13,8 +13,8 @@ class Controller {
  $this->_page = $page;
  $this->_action = $action;
  $this->_datas = [];
- $this->_view = 'contact';
- 
+ $this->_view = 'contact_form.php';
+  
  
  
     switch( $this->_action )
@@ -26,14 +26,14 @@ class Controller {
     
         case 'form' :
             $this->_datas = [];
-            $this->_view = 'contact';
+            $this->_view = 'contact_form.php';
         break;
     
     
         default : 
             
             $this->_datas = [];
-            $this->_view = 'contact_sent';
+            $this->_view = 'contact_sent.php';
         break;
     }
  
@@ -67,10 +67,10 @@ class Controller {
  {
        mail('mail@dom.net', 'Subject', $datas['message'], 'From:'. $datas['email']);
 
- $this->_view = 'contact_sent';
+ $this->_view = 'contact_sent.php';
     }
  }
-    $this->_view = 'contact';
+    $this->_view = 'contact_form.php';
  }
  
  
@@ -102,7 +102,7 @@ class Controller {
  public function view()
  {
 //The view() method will inform the interface to display.
-    return 'contact/'.$this->_view;
+    return 'contact\\'.$this->_view;
  }
 }
 
