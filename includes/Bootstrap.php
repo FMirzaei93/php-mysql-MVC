@@ -17,7 +17,7 @@
         }
         
         
-        if( !file_exists( SITE_PATH. '\application\\' .self::$page. '\Controller.php' ) ){            
+        if( !file_exists( SITE_PATH. '\application\\' .self::$page. '\Controller.php' ) && self::$page!='home'){            
             
             header('HTTP/1.0 404 NOT FOUND');
 //            The header() function sends a raw HTTP header to a client. Like header("Cache-Control: no-cache"); 

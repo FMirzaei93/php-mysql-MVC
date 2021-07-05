@@ -20,8 +20,6 @@ class Controller {
  
   include SITE_PATH . '\includes\Db.php';
   include SITE_PATH . '\includes\Queries.php';
-
-
  
  
  
@@ -29,13 +27,13 @@ class Controller {
     {
         case 'details' :
            $this->_datas['articlesList'] = $this->_getAllRows();
-            $this->_view = 'articles_list.php';
+            $this->_view = 'articles/articles_list.php';
         break;
         
     
         case 'add' :
             $this->_datas = [];
-            $this->_view = 'article_form.php';
+            $this->_view = 'articles/article_form.php';
         break;
     
     
@@ -72,7 +70,7 @@ class Controller {
  public function view()
  {
 //The view() method will inform the interface to display.
-    return 'articles/'.$this->_view;
+    return $this->_view;
  }
 }
 

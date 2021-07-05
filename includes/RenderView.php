@@ -11,12 +11,12 @@ class RenderView {
         ob_start();
         //****************** HERE:
         include( SITE_PATH.'\view\\'.$view_path );
-        $template = ob_get_contents();
+        $view = ob_get_contents();
 //        The ob_get_contents() function returns the contents of the topmost output buffer.
         ob_end_clean();  
 //        to finally free the memory.
 
-        echo $template;
+        echo $view;
         }
      }
 }

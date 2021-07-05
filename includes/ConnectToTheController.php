@@ -5,8 +5,8 @@
 
 class ConnectToTheController {
 
-      static function _connectAndRender($page, $action='', $router=''){
-             
+      static function connectAndRender($page, $action='', $router=''){
+                       
      if( file_exists(SITE_PATH.'\application\\'.$page.'\Controller.php') )
      
     {
@@ -22,7 +22,7 @@ class ConnectToTheController {
     
          else
          {
-            RenderView::render( 'home' );
+            RenderView::render( 'home.php' );
          }
  
  }
