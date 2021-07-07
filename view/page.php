@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <?php
 
+include_once SITE_PATH . '\includes\Statics.php';
+include_once Statics::$connectToTheController_path;
+
 ?>
 <html>
 
@@ -19,18 +22,16 @@
         <main>
             <nav>
                 <ul>
-                    <li><a href="<?php echo SITE_URL; ?>/home">Accueil</a></li>
-                    <li><a href="<?php echo SITE_URL; ?>/articles/details">Articles</a></li>
-                    <li><a href="<?php echo SITE_URL; ?>/contact/form">Contact</a></li>
+                    <li><a href="<?php echo SITE_URL.Statics::$home ?>">Accueil</a></li>
+                    <li><a href="<?php echo SITE_URL.Statics::$articles_list; ?>">Articles</a></li>
+                    <li><a href="<?php echo SITE_URL.Statics::$contact_form; ?>">Contact</a></li>
                     <!--what come after question mark(?), are parameters that are added after the current URL(SITE_URL)-->
                 </ul>
             </nav>            
             
             <?php
             
-            // Now page.php is the responsible for handling all the tabs, so it has to act the way that it works for all of them.   
-            include_once SITE_PATH . '\includes\Statics.php';
-           include_once SITE_PATH . '\includes\ConnectToTheController.php';
+           // Now page.php is the responsible for handling all the tabs, so it has to act the way that it works for all of them.   
         
            ConnectToTheController::connectAndRender( $datas['page'], $datas['action'], $datas['router'] );
            //These datas come from the class that this page(page.php) is being included in.
@@ -41,7 +42,7 @@
         </main>
     </div>
     
-    <button id="my_btn"><a href="<?php echo SITE_URL; ?>/articles/add">Add article</a></button>
+    <button id="my_btn"><a href="<?php echo SITE_URL.Statics::$add_article; ?>">Add article</a></button>
 
 
 

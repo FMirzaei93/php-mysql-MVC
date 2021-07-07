@@ -1,4 +1,9 @@
-<?php class Bootstrap{
+<?php 
+
+
+    include_once SITE_PATH . '\includes\Statics.php';
+
+    class Bootstrap{
 
     public static $page; 
     public static $action;
@@ -6,7 +11,6 @@
     
     
     public static function splitTheUrl($url) {                 
-        include_once SITE_PATH . '\includes\Statics.php';
 
         if( !empty( $url ) ){
             
@@ -23,7 +27,7 @@
             header('HTTP/1.0 404 NOT FOUND');
 //            The header() function sends a raw HTTP header to a client. Like header("Cache-Control: no-cache"); 
 //            By sending the header above, you will override this settings and force the browser to not cache!
-            include SITE_PATH . '\view\404.php';
+            include Statics::$error404_path;
             exit;        
             
              }    

@@ -1,5 +1,5 @@
 <?php
-namespace application\contact;
+//namespace application\contact;
 include_once SITE_PATH . '\includes\Statics.php';
 
 class Controller {
@@ -14,48 +14,45 @@ class Controller {
  $this->_page = $page;
  $this->_action = $action;
  $this->_datas = [];
- $this->_view = 'contact_form.php';
+ $this->_view = '';
   
  
  
     switch( $this->_action )
     {
-        case 'send' :
-           $this->_checkMessageSent();
+        case Statics::$send :
+           $this->_checkMessageFields();      
         break;
         
     
-        case 'form' :
+        case Statics::$form :
             $this->_datas = [];
-            $this->_view = 'contact_form.php';
+            $this->_view = Statics::$contact_form_view;
         break;
     
     
         default : 
-            
             $this->_datas = [];
-            $this->_view = 'contact_sent.php';
+            $this->_view = Statics::$contact_sent_view;
         break;
     }
  
  } 
 
  
- private function _checkMessageSent()
+ private function _checkMessageFields()
  {
- if( isset( $_POST[ 'email' ] ) ){
+ if( isset( $_POST ) ){
  $datas = $_POST;
  
     if( empty( $_POST[ 'email' ] ) ){
          $datas[ 'error' ][ 'emailempty' ] = true;
      }
  
- 
     else if( !filter_var( $_POST[ 'email' ], FILTER_VALIDATE_EMAIL ) ){
                 $datas[ 'error' ][ 'emailformat' ] = true;
             }
-            
-            
+                     
             
     if( empty( $_POST[ 'message' ] ) ){
             $datas[ 'error' ][ 'messageempty' ] = true;
@@ -64,31 +61,15 @@ class Controller {
         
      $this->_datas = $datas;
      
-     if( !isset( $datas[ 'error' ] ) )
- {
-       mail('mail@dom.net', 'Subject', $datas['message'], 'From:'. $datas['email']);
-
- $this->_view = 'contact_sent.php';
-    }
+     if( !isset( $datas[ 'error' ] ) ){
+       //mail('mail@dom.net', 'Subject', $datas['message'], 'From:'. $datas['email']);
+       $this->_view = Statics::$contact_sent_view;
+       return;
+      }
+    
+   }
+    {$this->_view = Statics::$contact_form_view;}
  }
-    $this->_view = 'contact_form.php';
- }
- 
- 
- private function _sendEmailToDb($emailData) {
-     // $values = array(
-//     'TitleArticle' =>'New Title',
-//     'IdArticle' => 8,
-//     'IntroArticle' => 'New Intro',
-//     'ContentArticle' => 'New Content'
-//    );
-//    $query = new Queries();
-//    $query->insert( 'articles', $values );
-
- }
-
-
-
 
 
 
@@ -103,18 +84,6 @@ class Controller {
  public function view()
  {
 //The view() method will inform the interface to display.
-    return 'contact\\'.$this->_view;
+    return $this->_view;
  }
 }
-
-
-//--------------------  Usage  ----------------
-
-//    
-//$page = ( empty( $_GET[ 'page' ] ) ) ? 'contact' : $_GET[ 'page' ];
-//$action = ( empty( $_GET[ 'action' ] ) ) ? '' : $_GET[ 'action' ];
-//include SITE_PATH . '/application/' . $page . '/Controller.php';
-//$controller = new Controller( $page, $action );
-//$datas = $controller->datas();
-//$file_name = $controller->view();
-    

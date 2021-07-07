@@ -1,27 +1,30 @@
+
+
 <h1>Articles</h1>
 
 <?php 
+include_once SITE_PATH . '\includes\Statics.php';
 
 
-if( isset( $datas[ 'articlesList' ] ) )
+if( isset( $datas ) )
 {
-    foreach ($datas[ 'articlesList' ] as $row) 
+    foreach ($datas as $row) 
     {
     ?>
 <article>
     <h2><a
-            href="<?php echo SITE_URL; ?>/index.php?page=articles&action=details&id=<?php echo $row[ 'IdArticle' ]; ?>"><?php echo $row[ 'TitleArticle' ]; ?></a>
-    <!-- The first value indicates the page(articles). It corresponds to the module which will process the information transmitted.-->
-    <!--The second value indicates the action to be taken on the page (the defined module). So "details" could assume that the detail of an article would be displayed (the one with specific id).-->
-        
+            
+           href="<?php echo SITE_URL.Statics::$articles_list
+                                    .Statics::$articles_id 
+                                    .$row[Statics::$Table_IdArticle ] ?>">
+            
+                 <?php echo $row[Statics::$Table_TitleArticle]; ?></a>
+
     </h2>
     <p>
-        <?php echo $row[ 'IntroArticle' ]; ?>
+        <?php echo $row[Statics::$Table_IntroArticle ]; ?>
     </p>
     
-    <p>
-        <?php echo $row[ 'ContentArticle' ]; ?>
-    </p>
 </article>
 <?php
     }

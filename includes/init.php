@@ -1,9 +1,10 @@
 <?php
 
-include SITE_PATH . '\includes\Bootstrap.php';
-include SITE_PATH . '\includes\RenderView.php';
-include SITE_PATH . '\includes\ConnectToTheController.php';
+
 include_once SITE_PATH . '\includes\Statics.php';
+include Statics::$bootstrap_path;
+include Statics::$renderview_path;
+include Statics::$connectToTheController_path;
 
 
 

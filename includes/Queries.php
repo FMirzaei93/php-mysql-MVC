@@ -81,17 +81,17 @@ return ' \''.$this->_mysqlObj->real_escape_string( $value ).'\' ';
 
 //--------------------------------------- Insert a row ------------------------------------------
 
-public function insert( $table, $values )
+public function insert( $table, $values_array )
 {
     
 // The general pattern : INSERT INTO table_name(column_1, column_2, ...) VALUES (value_1, value_2, ...);
 $strField = '';
 $strValue = '';
 
-$array_size = sizeof($values);
+$array_size = sizeof($values_array);
 $n = 0;
 
-foreach( $values as $column => $value ){
+foreach( $values_array as $column => $value ){
  
     if($n<$array_size-1){
     
@@ -109,7 +109,6 @@ foreach( $values as $column => $value ){
 }
 
   $query = 'INSERT INTO ' .$table. ' ('.$strField.') VALUES ('.$strValue.')';
-  echo $query;
   
   $this->_query( $query );
 

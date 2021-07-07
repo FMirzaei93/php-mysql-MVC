@@ -4,6 +4,7 @@ class RenderView {
     
      
      static function render($view_path, $datas=''){
+         
          //To render simply means: To include the related page
          
   if( file_exists( SITE_PATH.'\view\\'.$view_path ) && is_readable( SITE_PATH.'\view\\'.$view_path ) )

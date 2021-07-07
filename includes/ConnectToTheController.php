@@ -9,22 +9,21 @@ class ConnectToTheController {
 
       static function connectAndRender($page, $action='', $router=''){
                        
-     if( file_exists(SITE_PATH.'\application\\'.$page.'\Controller.php') )
-     
-    {
+     if( file_exists(SITE_PATH.'\application\\'.$page.'\Controller.php') ){
          
         include_once SITE_PATH.'\application\\'.$page.'\Controller.php';
-        $controllerPath = '\application\\'.$page.'\Controller'; //namespace
+//        $controllerPath = '\application\\'.$page.'\Controller.php'; //namespace
+//        $controller = new $controllerPath( $page, $action, $router );
 
-        $controller = new $controllerPath( $page, $action, $router );
+        $controller = new Controller( $page, $action, $router );
         
-        //We're rendering the content inside page.php (at the first step), which is ($page:articles_list AND $action:details)
+                
         RenderView::render( $controller->view(), $controller->datas() );
     }
     
          else
          {
-            RenderView::render( 'home.php' );
+            RenderView::render( Statics::$home_path );
          }
  
  }
